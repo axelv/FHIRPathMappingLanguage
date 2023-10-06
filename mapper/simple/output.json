@@ -1,0 +1,1 @@
+{"resourceType": "Patient", "name": [{"family": "Beda", "given": ["Ilya", "Alekseevich"]}], "birthDate": "2023-05-01", "gender": "male", "telecom": [{"system": "phone", "value": "11231231231"}], "identifier": [{"system": "http://hl7.org/fhir/sid/us-ssn", "value": "123"}]}

@@ -1,0 +1,15 @@
+resourceType: Bundle
+type: transaction
+entry:
+  - request:
+      url: $ "/Patient/" +fhirpath("QuestionnaireResponse.repeat(item).where(linkId='patientId').answer.valueString").0
+      method: PATCH
+    resource:
+      resourceType: Patient
+      telecom:
+        $map: fhirpath("QuestionnaireResponse.repeat(item).where(linkId='phone-group')")
+        $as: item
+        $body:
+          use: $ fhirpath("%context.item.where(linkId='phone-type').answer.valueString",item).0
+          value: $ fhirpath("%context.item.where(linkId='phone-number').answer.valueString",item).0
+          system: phone
